@@ -1,0 +1,260 @@
+$Width: 100%; 
+$font: 600; 
+$size: 25px; 
+$width2: 100px;
+$number: 30px; 
+$n: 10px; 
+$num: 20px; 
+$color: #fff; 
+
+@mixin text {
+    text-align: center;
+}
+@mixin item {
+    align-items: center;
+}
+@mixin border {
+    box-sizing: border-box;
+}
+@mixin font{
+    font-weight: 300;
+    font-size: 15px;
+}
+@mixin width {
+    width: 60px;
+}
+@mixin cursor {
+    cursor: pointer;
+}
+@mixin display {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+
+%margin {
+    margin: 0 auto;
+}
+
+%padding {
+    padding: 15px; 
+}
+
+%font {
+    font-weight: 500;
+}
+
+%size {
+    margin: 0;
+}
+
+
+body {
+    width: $Width;
+    @include font; 
+    color: #1d1d1d;
+    font-family: "Lexend", Arial, Helvetica, sans-serif;
+    @extend %size; 
+
+    img {
+        width: $width2;
+    }
+}
+
+header {
+    width: $Width;
+    padding: 20px 50px;
+    background-color: #333;
+    @include display; 
+
+    i{
+        width: 50px;
+        @include cursor; 
+        display: inline-block;
+    }
+
+    i img {
+        width: $Width;
+    }
+}
+
+.banner {
+    width: $Width;
+    padding: 40px 0;
+    @include text; 
+    background-image: url(../img/OIP.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $color;
+    background-position-y: 60%;
+
+    h2{
+        width: $Width;
+        font-weight: $font;
+        font-size: $number;
+        margin: $n;
+    }
+
+    p {
+        width: $Width;
+        @extend %margin;
+        font-size: $size;
+        opacity: 0.7;
+    }
+}
+
+.products {
+    width: 80%;
+    @extend %margin;
+    padding: $num;
+    @include border; 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    article {
+        @include cursor; 
+        @include text; 
+    }
+
+    img {
+        width: $width2; 
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        @extend %font; 
+        font-size: 17px;
+        margin-bottom: 5px;
+    }
+
+    p {
+        @include font; 
+    }
+}
+
+.cart {
+    width: 500px;
+    background-color: $color;
+    padding: $size;
+    @include border; 
+    height: 100%;
+    position: fixed;
+    right: -100%;
+    top: $width2;
+    box-shadow: -19px -1px 22px -15px rgba(0, 0, 0, 0.30);
+
+
+    h2 {
+        width: $Width;
+        @include text; 
+        font-size: $num;
+        font-weight: $font;
+        padding: 25px 0;
+        @include border; 
+    }
+
+    div {
+        border-bottom: 1px solid #333;
+        @include display; 
+        @extend %padding;
+    }
+
+    img {
+        @include width; 
+    }
+
+    div p:nth-child(3){
+        @extend %font; 
+    }
+
+    div i {
+        width: 25px;
+        @include cursor; 
+    }
+
+    .delete_icon {
+        width: $Width;
+    }
+}
+
+@media (max-width: 820px) {
+    header {
+         @extend %padding;
+
+        > img { 
+            @include width; 
+        }
+
+        i {
+            width: $number;
+        }
+    }
+
+    .products {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+        .products img {
+            width: 150px;
+        }
+    } 
+
+    .cart { 
+        width: 400px;
+        top: 80px;
+    }
+}
+
+ @media (max-width: 480px) {
+    .banner {
+        padding: 30px 0;
+
+        h2 {
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+    } 
+
+    .products {
+        grid-template-columns: 1fr;
+        padding: $n;
+
+        .products img {
+            width: $Width;
+            max-width: 200px;
+            margin-bottom: $n;
+        }
+
+        .product h3, 
+        .product p {
+            padding: 0 10px;
+        }
+    } 
+
+    .cart { 
+        width: $Width;
+        box-shadow: none;
+
+        h2 { 
+            padding: 15px 0;
+        }
+
+        div { 
+            flex-direction: column;
+            @include item; 
+        }
+
+        img { 
+            width: $width2;
+        }
+
+        p {
+            @extend %size; 
+        }
+    }   
+ }
+
