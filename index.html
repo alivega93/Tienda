@@ -1,89 +1,207 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/styles.css">
-    <title>Tienda Harry Potter</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+  <script src="js/functions.js" defer></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Tienda Harry Potter</title>
 </head>
 <body class="store">
-    <header>
-        <i> <img src="img/menu.png" alt="Icono Menu"></i>
-        <img src="img/HD-wallpaper-harry-potter-logo-team.jpg" alt="Logo HP">
-        <i> <img src="img/carrito.png" alt="Icono carrito"> </i>
-    </header>
+  <header class="header">
+    <i><img src="img/menu.png" alt="Abrir Menu" class="header__menu-icon"></i>
+    <img src="img/HD-wallpaper-harry-potter-logo-team.jpg" alt="Logo Harry Potter" class="header__logo">
+    <i class="header__cart-container">
+      <img src="img/carrito.png" alt="Abrir carrito" class="header__cart-icon">
+      <span class="header__badge">0</span>
+    </i>
+  </header>
 
-    <main>
-        <section class="banner"> 
-            <h2> Productos Nuevos </h2>
-            <p> Conoce nuestros productos nuevos</p>
-        </section>
-
-        <section class="products"> 
-            <article>
-                <img src="img/2000009604_Christmas25Pramsuit_A.webp" alt="Mameluco Hedwig">
-                <h3>Mameluco de Hedwig</h3>
-                <p>1,000</p>
-            </article>
-            <article>
-                <img src="img/2000009627_CosyHedwigCosySock_A.webp" alt="Calcetines">
-                <h3>Calcetines de Hedwig</h3>
-                <p>1,500</p>
-            </article>
-            <article>
-                <img src="img/2000009653_AcceptanceLetterMug_Plush_A.webp" alt="Taza carta de aceptacion">
-                <h3>Taza carta de aceptación y Hedwig</h3>
-                <p>2,000</p>
-            </article>
-            <article>
-                <img src="img/2000009654_Christmas25AdultHedwigSlanket_A.webp" alt="Hoodie Hedwig">
-                <h3>Hoodie Manta de Hedwig</h3>
-                <p>1,000</p>
-            </article>
-            <article>
-                <img src="img/2000009655_Christmas25AdultNifflerOodie_A.webp" alt="Hoodie Niffler">
-                <h3>Hoodie Manta de Niffler</h3>
-                <p>1,500</p>
-            </article>
-            <article>
-                <img src="img/2000009705_CosyNifflerMug_Plush_A.webp" alt="Taza Niffler">
-                <h3>Taza de Niffler</h3>
-                <p>2,000</p>
-            </article>
-            <article>
-                <img src="img/2000009645_Christmas25GryffindorRobeOrnament_A.webp" alt="Adorno navideño">
-                <h3>Adorno navideño tunica de Gryffindor</h3>
-                <p>1,000</p>
-            </article>
-            <article>
-                <img src="img/2000009607_AcceptanceLetterBlanket_A.webp" alt="Carta de aceptacion">
-                <h3>Carta de aceptacion de Hogwart</h3>
-                <p>1,500</p>
-            </article>
-            <article>
-                <img src="img/2000009675_CosyHedwigMug_A.webp" alt="Taza Hedwig">
-                <h3>Taza de Hedwig</h3>
-                <p>2,000</p>
-            </article>
-
-         <section class="cart"> 
-            <h2>Carrito</h2>
-            <div>
-                <img src="img/2000009604_Christmas25Pramsuit_A.webp" alt="Mameluco Hedwig">
-                <p>Mameluco de Hedwig</p>
-                <p>2,500</p>
-                <i><img src="img/quitar.png" alt="Icono quitar" class="delete-icon"></i>
-            </div>
-            <div>
-                <img src="img/2000009604_Christmas25Pramsuit_A.webp" alt="Mameluco Hedwig">
-                <p>Mameluco de Hedwig</p>
-                <p>2,500</p>
-                <i><img src="img/quitar.png" alt="Icono quitar" class="delete-icon"></i>
-            </div>
+  <main>
+    <section class="banner">
+      <h2 class="banner__title">Productos Nuevos</h2>
+      <p class="banner__subtitle">Conoce nuestros productos nuevos</p>
     </section>
-</main>
+
+    <section class="filters">
+      <button data-filter="all">Todos</button>
+      <button data-filter="Hedwig">Hedwig</button>
+      <button data-filter="Niffler">Niffler</button>
+      <button data-filter="Gryffindor">Gryffindor</button>
+      <button data-filter="Slytherin">Slytherin</button>
+      <button data-filter="Fawkes">Fawkes</button>
+      <button data-filter="Picket">Picket</button>
+      <button data-filter="Hogwarts">Hogwarts</button>
+      <button data-filter="Dobby">Dobby</button>
+      <button data-filter="Buckbeak">Buckbeak</button>
+    </section>
+
+    <section class="products">
+      <article class="product-card">
+        <img src="img/peluchehedwig.png" alt="Peluche Hedwig" class="product-card__image">
+        <h3 class="product-card__title">Peluche de Hedwig</h3>
+        <p class="product-card__price">1399</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/sudaderaniffler.webp" alt="Batamanta Niffler" class="product-card__image">
+        <h3 class="product-card__title">Batamanta de Niffler</h3>
+        <p class="product-card__price">1500</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/sudaderaGryffindor.webp" alt="Sudadera Gryffindor" class="product-card__image">
+        <h3 class="product-card__title">Sudadera Gryffindor</h3>
+        <p class="product-card__price">1999</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/varita.png" alt="Varita Hogwarts" class="product-card__image">
+        <h3 class="product-card__title">Varita Hogwarts</h3>
+        <p class="product-card__price">1199</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/tazacarta.webp" alt="Taza Hedwig" class="product-card__image">
+        <h3 class="product-card__title">Taza Hedwig</h3>
+        <p class="product-card__price">500</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/sudaderahedwig.webp" alt="Batamanta Hedwig" class="product-card__image">
+        <h3 class="product-card__title">Batamanta Hedwig </h3>
+        <p class="product-card__price">1999</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/JERSEY.webp" alt="Jersey Hogwarts" class="product-card__image">
+        <h3 class="product-card__title">Jersey Hogwarts</h3>
+        <p class="product-card__price">1499</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/fawkes.png" alt="Fawkes de coleccion" class="product-card__image">
+        <h3 class="product-card__title">Fawkes coleccion</h3>
+        <p class="product-card__price">2700</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/bataGryfindor.png" alt="Bata Gryffindor" class="product-card__image">
+        <h3 class="product-card__title">Bata Gryffindor</h3>
+        <p class="product-card__price">999</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/picket.png" alt="Picket" class="product-card__image">
+        <h3 class="product-card__title">Picket</h3>
+        <p class="product-card__price">1000</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/Pelucheniffler.webp" alt="Peluche Niffler" class="product-card__image">
+        <h3 class="product-card__title">Peluche Niffler</h3>
+        <p class="product-card__price">899</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/crocs.png" alt="Crocs Slytherin" class="product-card__image">
+        <h3 class="product-card__title">Crocs Slytherin</h3>
+        <p class="product-card__price">1599</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/cartaaceptacion.webp" alt="Carta de aceptacion de Hogwarts" class="product-card__image">
+        <h3 class="product-card__title">Carta de aceptacion Hogwarts</h3>
+        <p class="product-card__price">1000</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/disfraz.png" alt="Disfraz Slytherin" class="product-card__image">
+        <h3 class="product-card__title">Disfraz Slytherin </h3>
+        <p class="product-card__price">1800</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/mochilafawkes.png" alt="Bolsa Fawkes" class="product-card__image">
+        <h3 class="product-card__title">Bolsa Fawkes</h3>
+        <p class="product-card__price">1499</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/Dobby6.png" alt="Lego Dobby" class="product-card__image">
+        <h3 class="product-card__title">Lego Dobby</h3>
+        <p class="product-card__price">1399</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/Buckbeak.png" alt="Peluche Buckbeak" class="product-card__image">
+        <h3 class="product-card__title">Peluche Buckbeak </h3>
+        <p class="product-card__price">1299</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/tazadobby.png" alt="Taza Dobby" class="product-card__image">
+        <h3 class="product-card__title">Taza Dobby</h3>
+        <p class="product-card__price">499</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/PIJAMABUCK.png" alt="Pijama Buckbeak" class="product-card__image">
+        <h3 class="product-card__title">Pijama Buckbeak</h3>
+        <p class="product-card__price">1399</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/dobbypi8jama.webp" alt="Dobby Pijama" class="product-card__image">
+        <h3 class="product-card__title">Dobby Pijama </h3>
+        <p class="product-card__price">1399</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/hedwigpijama.png" alt="Hedwig Pijama" class="product-card__image">
+        <h3 class="product-card__title">Hedwig Pijama </h3>
+        <p class="product-card__price">1399</p>
+      </article>
+
+      <article class="product-card">
+        <img src="img/pantuflash-removebg-preview.png" alt="Hedwig Pantuflas" class="product-card__image">
+        <h3 class="product-card__title">Hedwig Pantuflas </h3>
+        <p class="product-card__price">799</p>
+      </article>
+    </section>
+
+    <section class="cart">
+      <h2 class="cart__title">Carrito</h2>
+      <div class="cart__items"></div>
+      <p class="cart__total">Total: $0</p>
+      <button class="cart__btn-buy">Comprar</button>
+    </section>
+
+    <section class="contact" id="contact">
+      <article class="form">
+        <h2 class="form__title">Contacto</h2>
+        <button class="form__btn form__btn--show">Mostrar formulario</button>
+        <form class="form__body">
+          <input type="text" placeholder="Nombre" class="form__input">
+          <input type="text" placeholder="No de orden" class="form__input">
+          <textarea cols="30" rows="10" placeholder="Comentarios" class="form__textarea"></textarea>
+          <button type="submit" class="form__btn form__btn--send">Enviar</button>
+        </form>
+        <button class="form__btn form__btn--hide">Ocultar formulario</button>
+      </article>
+    </section>
+
+    <aside class="side-menu">
+      <div class="side-menu__header">
+        <h2 class="side-menu__title">Menú</h2>
+        <span class="side-menu__close">X</span>
+      </div>
+      <ul class="side-menu__list">
+        <li class="side-menu__item"><a href="#" class="side-menu__link">Inicio</a></li>
+        <li class="side-menu__item"><a href="#" class="side-menu__link">Productos</a></li>
+        <li class="side-menu__item"><a href="#contact" class="side-menu__link">Contacto</a></li>
+      </ul>
+    </aside>
 </body>
 </html>
