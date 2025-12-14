@@ -197,15 +197,21 @@ body {
   }
 }
 
+/* 📱 Ajustes para móvil */
 @media (max-width: 768px) {
   .cart {
     width: 100%;
     top: 60px;
-    right: 0;
-    left: 0;
+    right: -100%;   // 🔴 sigue oculto por defecto
+    left: auto;
     border-radius: 0;
     padding: 15px;
     max-height: 70vh;
+
+    &.show {
+      right: 0;     // ✅ aparece al abrir
+      left: 0;      // ocupa todo el ancho
+    }
   }
 
   .cart__items div {

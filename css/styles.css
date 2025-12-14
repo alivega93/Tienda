@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   font-family: "Lexend", Arial, sans-serif;
   margin: 0;
@@ -174,15 +175,20 @@ body {
   font-size: 1rem;
 }
 
+/* 📱 Ajustes para móvil */
 @media (max-width: 768px) {
   .cart {
     width: 100%;
     top: 60px;
-    right: 0;
-    left: 0;
+    right: -100%;
+    left: auto;
     border-radius: 0;
     padding: 15px;
     max-height: 70vh;
+  }
+  .cart.show {
+    right: 0;
+    left: 0;
   }
   .cart__items div {
     flex-direction: column;
