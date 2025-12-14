@@ -14,44 +14,20 @@ closeMenu.addEventListener("click", () => {
 });
 
 // -----------------------------
-// Carrito con overlay y modal
+// Carrito panel lateral
 // -----------------------------
 const cartIcon = document.querySelector(".header__cart-icon");
 const cart = document.querySelector(".cart");
 const cartItems = document.querySelector(".cart__items");
 const badge = document.querySelector(".header__badge");
-const overlay = document.querySelector(".cart-overlay");
 
 let cartCount = 0;
 badge.innerText = cartCount;
 
-// Funciones abrir/cerrar
-function openCart() {
-  cart.classList.add("show");
-  overlay.classList.add("show");
-}
-
-function closeCart() {
-  cart.classList.remove("show");
-  overlay.classList.remove("show");
-}
-
-// Eventos
-cartIcon.addEventListener("click", openCart);
-overlay.addEventListener("click", closeCart);
-
-// Botón de cerrar dentro del carrito
-const closeBtn = document.createElement("span");
-closeBtn.textContent = "✖";
-closeBtn.classList.add("cart-close");
-closeBtn.style.cursor = "pointer";
-closeBtn.style.fontSize = "1.2rem";
-closeBtn.style.position = "absolute";
-closeBtn.style.top = "10px";
-closeBtn.style.right = "15px";
-cart.appendChild(closeBtn);
-
-closeBtn.addEventListener("click", closeCart);
+// Abrir/cerrar carrito
+cartIcon.addEventListener("click", () => {
+  cart.classList.toggle("show");
+});
 
 // -----------------------------
 // Lógica de carrito
@@ -123,53 +99,3 @@ document.querySelectorAll(".product-card").forEach(product => {
 const filterButtons = document.querySelectorAll(".filters button");
 const productArticles = document.querySelectorAll(".product-card");
 
-filterButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const filter = btn.getAttribute("data-filter");
-
-    productArticles.forEach(article => {
-      const name = article.querySelector(".product-card__title").innerText;
-      if (filter === "all" || name.toLowerCase().includes(filter.toLowerCase())) {
-        article.style.display = "block";
-      } else {
-        article.style.display = "none";
-      }
-    });
-  });
-});
-
-// -----------------------------
-// Formulario de contacto
-// -----------------------------
-const formSection = document.querySelector(".form__body");
-const btnShowForm = document.querySelector(".form__btn--show");
-const btnHideForm = document.querySelector(".form__btn--hide");
-const btnSendForm = document.querySelector(".form__btn--send");
-const contactoLink = document.querySelector(".side-menu__link[href='#contact']");
-const contactoTitle = document.querySelector(".form__title");
-
-function showForm() {
-  formSection.classList.add("is-open");
-  btnShowForm.style.display = "none";
-  btnHideForm.style.display = "inline-block";
-}
-
-function hideForm() {
-  formSection.classList.remove("is-open");
-  btnShowForm.style.display = "inline-block";
-  btnHideForm.style.display = "none";
-}
-
-btnShowForm.addEventListener("click", showForm);
-btnHideForm.addEventListener("click", hideForm);
-btnSendForm.addEventListener("click", hideForm);
-
-contactoLink.addEventListener("click", (e) => {
-  e.preventDefault();
-  showForm();
-  sideMenu.classList.remove("show");
-});
-
-contactoTitle.addEventListener("click", showForm);
-
-hideForm();
