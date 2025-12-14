@@ -83,7 +83,7 @@ cartItems.addEventListener("click", (e) => {
 document.querySelectorAll(".product-card").forEach(product => {
   const btn = document.createElement("button");
   btn.innerText = "Agregar al carrito";
-  btn.classList.add("add-cart");
+  btn.classList.add("btn", "product-card__btn");
   product.appendChild(btn);
 
   btn.addEventListener("click", () => {
@@ -98,7 +98,7 @@ document.querySelectorAll(".product-card").forEach(product => {
 // -----------------------------
 // Filtros de productos
 // -----------------------------
-const filterButtons = document.querySelectorAll(".filters button");
+const filterButtons = document.querySelectorAll(".filters .btn");
 const productArticles = document.querySelectorAll(".product-card");
 
 filterButtons.forEach(btn => {
@@ -114,4 +114,36 @@ filterButtons.forEach(btn => {
       }
     });
   });
+});
+
+// -----------------------------
+// Formulario contacto
+// -----------------------------
+const showFormBtn = document.querySelector(".show-form");
+const hideFormBtn = document.querySelector(".hide-form");
+const contactForm = document.querySelector(".contact form");
+const contactTitle = document.querySelector(".form__title");
+
+// Inicialmente ocultamos el botón de "Ocultar"
+hideFormBtn.style.display = "none";
+
+// Mostrar formulario desde el botón
+showFormBtn.addEventListener("click", () => {
+  contactForm.classList.add("is-open");
+  showFormBtn.style.display = "none";
+  hideFormBtn.style.display = "inline-block";
+});
+
+// Ocultar formulario desde el botón
+hideFormBtn.addEventListener("click", () => {
+  contactForm.classList.remove("is-open");
+  hideFormBtn.style.display = "none";
+  showFormBtn.style.display = "inline-block";
+});
+
+// ✅ Mostrar formulario al hacer clic en el título "Contacto"
+contactTitle.addEventListener("click", () => {
+  contactForm.classList.add("is-open");
+  showFormBtn.style.display = "none";
+  hideFormBtn.style.display = "inline-block";
 });
