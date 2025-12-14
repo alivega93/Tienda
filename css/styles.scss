@@ -4,7 +4,6 @@ body {
   background-color: #fafafa;
 }
 
-/* Botón global reutilizable */
 .add-cart {
   padding: 8px 12px;
   background: #333;
@@ -115,7 +114,7 @@ body {
   background: #fff;
   padding: 25px;
   position: fixed;
-  right: -100%;   /* 🔴 oculto por defecto */
+  right: -100%; // 🔴 oculto por defecto
   top: 100px;
   transition: all 0.3s ease;
   box-shadow: -10px 0 20px rgba(0, 0, 0, 0.3);
@@ -125,7 +124,7 @@ body {
   max-height: 80vh;
 
   &.show {
-    right: 0;     /* ✅ aparece al abrir */
+    right: 0; // ✅ aparece al abrir
   }
 
   &__title {
@@ -169,7 +168,7 @@ body {
       }
 
       .delete-icon {
-        width: 24px;   
+        width: 24px;
         height: 24px;
         cursor: pointer;
         flex-shrink: 0;
@@ -198,11 +197,10 @@ body {
   }
 }
 
-/* 📱 Ajustes para móvil */
 @media (max-width: 768px) {
   .cart {
-    width: 100%;       /* ocupa todo el ancho */
-    top: 60px;         /* baja un poco para no tapar el header */
+    width: 100%;
+    top: 60px;
     right: 0;
     left: 0;
     border-radius: 0;
@@ -211,7 +209,7 @@ body {
   }
 
   .cart__items div {
-    flex-direction: column;  /* apila elementos */
+    flex-direction: column;
     align-items: flex-start;
     text-align: left;
 

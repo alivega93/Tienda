@@ -24,7 +24,7 @@ const badge = document.querySelector(".header__badge");
 let cartCount = 0;
 badge.innerText = cartCount;
 
-// Abrir/cerrar carrito
+// ✅ Abrir/cerrar carrito
 cartIcon.addEventListener("click", () => {
   cart.classList.toggle("show");
 });
@@ -77,7 +77,9 @@ cartItems.addEventListener("click", (e) => {
   updateTotal();
 });
 
+// -----------------------------
 // Botones de agregar al carrito
+// -----------------------------
 document.querySelectorAll(".product-card").forEach(product => {
   const btn = document.createElement("button");
   btn.innerText = "Agregar al carrito";
@@ -99,3 +101,17 @@ document.querySelectorAll(".product-card").forEach(product => {
 const filterButtons = document.querySelectorAll(".filters button");
 const productArticles = document.querySelectorAll(".product-card");
 
+filterButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const filter = btn.getAttribute("data-filter");
+
+    productArticles.forEach(article => {
+      const name = article.querySelector(".product-card__title").innerText;
+      if (filter === "all" || name.toLowerCase().includes(filter.toLowerCase())) {
+        article.style.display = "block";
+      } else {
+        article.style.display = "none";
+      }
+    });
+  });
+});
