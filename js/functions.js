@@ -1,3 +1,6 @@
+// -----------------------------
+// Menú lateral
+// -----------------------------
 const menuIcon = document.querySelector(".header__menu-icon");
 const sideMenu = document.querySelector(".side-menu");
 const closeMenu = document.querySelector(".side-menu__close");
@@ -10,18 +13,49 @@ closeMenu.addEventListener("click", () => {
   sideMenu.classList.remove("show");
 });
 
+// -----------------------------
+// Carrito con overlay y modal
+// -----------------------------
 const cartIcon = document.querySelector(".header__cart-icon");
 const cart = document.querySelector(".cart");
 const cartItems = document.querySelector(".cart__items");
 const badge = document.querySelector(".header__badge");
+const overlay = document.querySelector(".cart-overlay");
 
 let cartCount = 0;
 badge.innerText = cartCount;
 
-cartIcon.addEventListener("click", () => {
-  cart.classList.toggle("show");
-});
+// Funciones abrir/cerrar
+function openCart() {
+  cart.classList.add("show");
+  overlay.classList.add("show");
+}
 
+function closeCart() {
+  cart.classList.remove("show");
+  overlay.classList.remove("show");
+}
+
+// Eventos
+cartIcon.addEventListener("click", openCart);
+overlay.addEventListener("click", closeCart);
+
+// Botón de cerrar dentro del carrito
+const closeBtn = document.createElement("span");
+closeBtn.textContent = "✖";
+closeBtn.classList.add("cart-close");
+closeBtn.style.cursor = "pointer";
+closeBtn.style.fontSize = "1.2rem";
+closeBtn.style.position = "absolute";
+closeBtn.style.top = "10px";
+closeBtn.style.right = "15px";
+cart.appendChild(closeBtn);
+
+closeBtn.addEventListener("click", closeCart);
+
+// -----------------------------
+// Lógica de carrito
+// -----------------------------
 function getItemPrice(item) {
   const priceP = item.querySelector("p");
   if (!priceP) return 0;
@@ -53,6 +87,7 @@ function addToCart({ imgSrc, name, priceText }) {
   updateTotal();
 }
 
+// Eliminar producto
 cartItems.addEventListener("click", (e) => {
   const target = e.target;
   if (!target.classList.contains("delete-icon")) return;
@@ -66,6 +101,7 @@ cartItems.addEventListener("click", (e) => {
   updateTotal();
 });
 
+// Botones de agregar al carrito
 document.querySelectorAll(".product-card").forEach(product => {
   const btn = document.createElement("button");
   btn.innerText = "Agregar al carrito";
@@ -81,6 +117,9 @@ document.querySelectorAll(".product-card").forEach(product => {
   });
 });
 
+// -----------------------------
+// Filtros de productos
+// -----------------------------
 const filterButtons = document.querySelectorAll(".filters button");
 const productArticles = document.querySelectorAll(".product-card");
 
@@ -99,6 +138,9 @@ filterButtons.forEach(btn => {
   });
 });
 
+// -----------------------------
+// Formulario de contacto
+// -----------------------------
 const formSection = document.querySelector(".form__body");
 const btnShowForm = document.querySelector(".form__btn--show");
 const btnHideForm = document.querySelector(".form__btn--hide");
